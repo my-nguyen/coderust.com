@@ -1,4 +1,4 @@
-class rotate_array {
+class RotateArray {
    static void intermediateArray(int[] array, int rotateBy) {
       int[] tmp = new int[rotateBy];
       for (int i = 0; i < rotateBy; i++)
@@ -50,23 +50,16 @@ class rotate_array {
       }
    }
 
-   static String toString(int[] array) {
-      StringBuilder builder = new StringBuilder();
-      for (int number : array)
-         builder.append(number).append(" ");
-      return builder.toString();
-   }
-
    public static void main(String[] args) {
       if (args.length != 0) {
          int rotateBy = Integer.parseInt(args[0]);
-         int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+         int[] array = Array.generate(20);
          intermediateArray(array, rotateBy);
-         System.out.println(toString(array));
+         System.out.println(Array.toString(array));
          leftRotate(array, rotateBy);
-         System.out.println(toString(array));
+         System.out.println(Array.toString(array));
          juggle(array, rotateBy);
-         System.out.println(toString(array));
+         System.out.println(Array.toString(array));
       }
    }
 }

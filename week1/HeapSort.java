@@ -1,6 +1,6 @@
 import java.util.*;
 
-class heap_sort {
+class HeapSort {
    // this builds a subtree rooted at index
    static void heapify(int[] array, int size, int index) {
       int left = index * 2;
@@ -46,39 +46,13 @@ class heap_sort {
       }
    }
 
-   static String toString(int[] array) {
-      StringBuilder builder = new StringBuilder();
-      for (int number : array) {
-         builder.append(number).append(" ");
-      }
-      return builder.toString();
-   }
-
-   static int[] generate(int size) {
-      final int MAX = 100;
-      Random random = new Random();
-      Set<Integer> set = new HashSet<>();
-
-      while (set.size() != size) {
-         set.add(random.nextInt(MAX));
-      }
-      // return set.toArray(new Integer[size]);
-      int[] array = new int[size];
-      int index = 0;
-      for (int element : set) {
-         array[index] = element;
-         index++;
-      }
-      return array;
-   }
-
    public static void main(String[] args) {
       if (args.length != 0) {
          int size = Integer.parseInt(args[0]);
-         int[] array = generate(size);
-         System.out.println(toString(array));
+         int[] array = Array.generate(size);
+         System.out.println(Array.toString(array));
          sort(array);
-         System.out.println(toString(array));
+         System.out.println(Array.toString(array));
       }
    }
 }
