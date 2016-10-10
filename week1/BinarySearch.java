@@ -24,10 +24,10 @@ class BinarySearch {
    public static void main(String[] args) {
       if (args.length != 0) {
          int size = Integer.parseInt(args[0]);
-         int[] list = Array.generate(size);
-         System.out.println(Array.toString(list));
+         int[] list = MyArray.generate(size);
+         System.out.println(MyArray.toString(list));
          Arrays.sort(list);
-         System.out.println(Array.toString(list));
+         System.out.println(MyArray.toString(list));
          int index = new Random().nextInt(size);
          int target = list[index];
          System.out.println("target: " + target);

@@ -49,10 +49,10 @@ class HeapSort {
    public static void main(String[] args) {
       if (args.length != 0) {
          int size = Integer.parseInt(args[0]);
-         int[] array = Array.generate(size);
-         System.out.println(Array.toString(array));
+         int[] array = MyArray.generate(size);
+         System.out.println(MyArray.toString(array));
          sort(array);
-         System.out.println(Array.toString(array));
+         System.out.println(MyArray.toString(array));
       }
    }
 }

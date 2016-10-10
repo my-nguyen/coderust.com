@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Array {
+class MyArray {
    static final int MAX = 100;
 
    // generate an unsorted list of integers of size
@@ -24,6 +24,14 @@ class Array {
       StringBuilder builder = new StringBuilder();
       for (int number : list) {
          builder.append(number).append(" ");
+      }
+      return builder.toString();
+   }
+
+   static <T> String toString(T[] array) {
+      StringBuilder builder = new StringBuilder();
+      for (T element : array) {
+         builder.append(element).append(" ");
       }
       return builder.toString();
    }

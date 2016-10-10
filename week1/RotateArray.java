@@ -53,13 +53,13 @@ class RotateArray {
    public static void main(String[] args) {
       if (args.length != 0) {
          int rotateBy = Integer.parseInt(args[0]);
-         int[] array = Array.generate(20);
+         int[] array = MyArray.generate(20);
          intermediateArray(array, rotateBy);
-         System.out.println(Array.toString(array));
+         System.out.println(MyArray.toString(array));
          leftRotate(array, rotateBy);
-         System.out.println(Array.toString(array));
+         System.out.println(MyArray.toString(array));
          juggle(array, rotateBy);
-         System.out.println(Array.toString(array));
+         System.out.println(MyArray.toString(array));
       }
    }
 }
