@@ -10,6 +10,10 @@ class Node {
       left = null;
       right = null;
    }
+
+   public String toString() {
+      return Integer.toString(data);
+   }
 }
 
 class MyTree {
@@ -46,7 +50,43 @@ class MyTree {
       return tree;
    }
 
-   void recurse(Node node) {
+   static boolean isIdentical(Node one, Node two) {
+      if (one == null && two == null)
+         return true;
+      if (one == null || two == null)
+         return false;
+      return one.data == two.data &&
+         isIdentical(one.left, two.left) &&
+         isIdentical(one.right, two.right);
+   }
+
+   void insert(int data) {
+      Node node = new Node(data);
+      if (root == null) {
+         root = node;
+      } else {
+         Node current = root;
+         Node parent = null;
+         while (true) {
+            parent = current;
+            if (data < current.data) {
+               current = current.left;
+               if (current == null) {
+                  parent.left = node;
+                  break;
+               }
+            } else {
+               current = current.right;
+               if (current == null) {
+                  parent.right = node;
+                  break;
+               }
+            }
+         }
+      }
+   }
+
+   private void recurse(Node node) {
       if (node.left != null)
          recurse(node.left);
       tree.add(node);
