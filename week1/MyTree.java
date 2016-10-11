@@ -86,6 +86,53 @@ class MyTree {
       }
    }
 
+   List<Node> perimeters = null;
+   List<Node> getPerimeters() {
+      if (root != null) {
+         perimeters = new ArrayList<>();
+         perimeters.add(root);
+
+         leftEdges(root.left);
+         leaves(root.left);
+         leaves(root.right);
+         rightEdges(root.right);
+      }
+      return perimeters;
+   }
+
+   private void leftEdges(Node node) {
+      if (node != null) {
+         if (node.left != null) {
+            perimeters.add(node);
+            leftEdges(node.left);
+         } else if (node.right != null) {
+            perimeters.add(node);
+            leftEdges(node.right);
+         }
+      }
+   }
+
+   private void rightEdges(Node node) {
+      if (node != null) {
+         if (node.right != null) {
+            rightEdges(node.right);
+            perimeters.add(node);
+         } else if (node.left != null) {
+            rightEdges(node.left);
+            perimeters.add(node);
+         }
+      }
+   }
+
+   private void leaves(Node node) {
+      if (node != null) {
+         leaves(node.left);
+         if (node.left == null && node.right == null)
+            perimeters.add(node);
+         leaves(node.right);
+      }
+   }
+
    private void recurse(Node node) {
       if (node.left != null)
          recurse(node.left);
