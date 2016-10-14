@@ -1,10 +1,15 @@
 class SquareRoot {
-   static double sqrt(double number) {
-      if (number >= 0) {
-         double result = number/2;
+   static double sqrt(double x) {
+      if (x >= 0) {
+         // let guess be a guess of what the square root might be
+         double guess = x/2;
+         // repeat the following operation a few times
          for (int i = 0; i < 10; i++)
-            result = (result + number/result) / 2;
-         return result;
+            // take the average of guess and x/guess
+            // this will bring guess closer to the square root of x
+            guess = (guess + x/guess) / 2;
+         // guess now is pretty close to the square root of x
+         return guess;
       } else {
          return -1;
       }
